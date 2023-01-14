@@ -1,6 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 const Page = () => {
+
+    const [datas, setDatas] = useState([]);
+
+    fetch('https://simple-ui-server.onrender.com/contacts')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        setDatas(data)
+    });
 
     const emailRef = useRef('');
     const descriptionRef = useRef('');
@@ -51,8 +60,8 @@ const Page = () => {
 
 
     return (
-        <div className='w-50 mx-auto container border' style={{
-            marginTop: '50px', backgroundImage: `url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000')`,
+        <div className='mx-auto border' style={{
+            marginTop: '0px', backgroundImage: `url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000')`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
         }}>
@@ -96,7 +105,7 @@ const Page = () => {
                 </div>
             </div>
 
-            <a href="https://simple-ui-server.onrender.com/contacts" className='btn btn-secondary'>view</a>
+            <a href="https://simple-ui-server.onrender.com/contacts" className='btn btn-secondary'>Message {datas.length}</a>
         </div>
     );
 };
