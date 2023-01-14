@@ -26,7 +26,7 @@ const Page = () => {
         }
 
 
-        const url = `http://localhost:5000/contacts`;
+        const url = `https://simple-ui-server.onrender.com/contacts`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -96,7 +96,7 @@ const Page = () => {
                 </div>
             </div>
 
-            <a href="http://localhost:5000/contacts" className='btn btn-secondary'>view</a>
+            <a href="https://simple-ui-server.onrender.com/contacts" className='btn btn-secondary'>view</a>
         </div>
     );
 };
